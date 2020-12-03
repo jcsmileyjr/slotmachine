@@ -14,9 +14,9 @@ function App() {
         <img src={combinations} className="header-section" alt="Winning combinations" />
       </header>
       <main className="symbol-container">
-        <Symbol />
-        <Symbol />
-        <Symbol />
+        <Symbol order={1} />
+        <Symbol order={2} />
+        <Symbol order={3} />
       </main>
       <footer>
         <section class="footer-sections spin-button-area">

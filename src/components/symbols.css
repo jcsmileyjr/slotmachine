@@ -11,3 +11,25 @@ img {
     width: 30vw;
     height: 30vh;
 }
+
+.slide-down1 {
+    animation: sliding .5s ease-out;
+}
+
+.slide-down2 {
+    animation: sliding .8s ease-out;
+}
+
+.slide-down3 {
+    animation: sliding 1s ease-out;
+}
+
+/*animate the symbols falling from the top of the app*/
+@keyframes sliding {
+    0% {
+      transform: translate(0px, -350px);
+    }
+    100% {
+      transform: translate(0px, 0px);
+    }
+}
