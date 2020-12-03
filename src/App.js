@@ -1,23 +1,42 @@
-import logo from './logo.svg';
+import combinations from './assets/rules.PNG'
+import Symbol from './components/Symbols'
+import InfoBox from './components/InfoBox';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header>
+        <section class="header-section">
+          <label class="play-title">How to Play</label>
+          <p>Press the spin button to randomaly get three symbols. If the three symobls match a combination you win.</p>
+        </section>
+        <img src={combinations} className="header-section" alt="Winning combinations" />
       </header>
+      <main className="symbol-container">
+        <Symbol />
+        <Symbol />
+        <Symbol />
+      </main>
+      <footer>
+        <section class="footer-sections spin-button-area">
+          <button className="spin-button">Spin</button>
+        </section>
+        <section className="footer-sections info-section">
+          <InfoBox title="Bet" data={1} />
+          <InfoBox title="Win" data={1} />
+          <InfoBox title="Funds" data={1} />
+        </section>
+        <section className="footer-sections">
+          <p className="bet-amount-instruction">Change your <span className="bet-instruction-bold">Bet </span>amount</p>
+          <article className="bet-section">
+            <button className="bet-button">1</button>
+            <button className="bet-button">5</button>
+            <button className="bet-button">10</button>
+            <button className="bet-button">20</button>
+          </article>
+        </section>
+      </footer>
     </div>
   );
 }

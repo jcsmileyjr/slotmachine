@@ -1,0 +1,21 @@
+
+.info-box-style {
+    flex: 1;
+    max-width: 15vw;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.info-title {
+    font-weight: bold;
+    color: #707070;
+}
+
+.info-area {
+    font-weight: bold;
+    color: black;
+    border: 2px solid #707070;
+    width: 50px;
+}
