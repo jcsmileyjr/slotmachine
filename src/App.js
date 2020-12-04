@@ -84,34 +84,36 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <header>
-        <img src={combinations} className="header-section" alt="Winning combinations" />
-      </header>
-      <main className="symbol-container">
-        <Symbol order={1} pickedSymbol={gameSymbols[0]} start={spinSymbols} />
-        <Symbol order={2} pickedSymbol={gameSymbols[1]} start={spinSymbols} />
-        <Symbol order={3} pickedSymbol={gameSymbols[2]} start={spinSymbols} />
-      </main>
-      <footer>
-        <section className="footer-sections spin-button-area">
-          <button className="spin-button" onClick={()=> onClickSpinButton()}>Spin</button>
-        </section>
-        <section className="footer-sections info-section">
-          <InfoBox title="Bet" data={currentBet} />
-          <InfoBox title="Win" data={lastWin} />
-          <InfoBox title="Funds" data={funds} />
-        </section>
-        <section className="footer-sections">
-          <p className="bet-amount-instruction">Change your <span className="bet-instruction-bold">Bet </span>amount</p>
-          <article className="bet-section">
-            <button className={currentBet===1?"selected-bet bet-button":"bet-button"} onClick={() => changeBetAmount(1)} >1</button>
-            <button className={currentBet===5?"selected-bet bet-button":"bet-button"} onClick={() => changeBetAmount(5)} >5</button>
-            <button className={currentBet===10?"selected-bet bet-button":"bet-button"} onClick={() => changeBetAmount(10)}>10</button>
-            <button className={currentBet===20?"selected-bet bet-button":"bet-button"} onClick={() => changeBetAmount(20)} >20</button>
-          </article>
-        </section>
-      </footer>
+    <div className="app">
+      <div className="container">
+        <header>
+          <img src={combinations} className="header-section" alt="Winning combinations" />
+        </header>
+        <main className="symbol-container">
+          <Symbol order={1} pickedSymbol={gameSymbols[0]} start={spinSymbols} />
+          <Symbol order={2} pickedSymbol={gameSymbols[1]} start={spinSymbols} />
+          <Symbol order={3} pickedSymbol={gameSymbols[2]} start={spinSymbols} />
+        </main>
+        <footer>
+          <section className="footer-sections spin-button-area">
+            <button className="spin-button" onClick={()=> onClickSpinButton()}>Spin</button>
+          </section>
+          <section className="footer-sections info-section">
+            <InfoBox title="Bet" data={currentBet} />
+            <InfoBox title="Win" data={lastWin} />
+            <InfoBox title="Funds" data={funds} />
+          </section>
+          <section className="footer-sections">
+            <p className="bet-amount-instruction">Change your <span className="bet-instruction-bold">Bet </span>amount</p>
+            <article className="bet-section">
+              <button className={currentBet===1?"selected-bet bet-button":"bet-button"} onClick={() => changeBetAmount(1)} >1</button>
+              <button className={currentBet===5?"selected-bet bet-button":"bet-button"} onClick={() => changeBetAmount(5)} >5</button>
+              <button className={currentBet===10?"selected-bet bet-button":"bet-button"} onClick={() => changeBetAmount(10)}>10</button>
+              <button className={currentBet===20?"selected-bet bet-button":"bet-button"} onClick={() => changeBetAmount(20)} >20</button>
+            </article>
+          </section>
+        </footer>
+      </div>
     </div>
   );
 }
