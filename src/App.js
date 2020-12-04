@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react';
+import {useState} from 'react';
 import combinations from './assets/rules.PNG'
 import Symbol from './components/Symbols'
 import InfoBox from './components/InfoBox';
@@ -16,8 +16,8 @@ function App() {
 
   // Function that choose 3 random numbers for a combination of reels, check for combinations, and assign win amount to funds. 
   const onClickSpinButton = () => {
-    //let randomSymbol = getRandomCombination(); // Comment out for TESTING TESTING TESTING
-    let randomSymbol= {0:3,1:3,2:3} //   TESTING TESTING TESTING TESTING
+    let randomSymbol = getRandomCombination(); // Comment out for TESTING TESTING TESTING
+    //let randomSymbol= {0:3,1:3,2:3} //   TESTING TESTING TESTING TESTING
 
     setGameSymbols(randomSymbol); // Update the state's symbols to update the Symbol reels
     setTimeout(()=>setSpinSymbols(false),500); // Set timer to return Symbol reels to waiting status
@@ -56,6 +56,8 @@ function App() {
 
       updateFunds(newFunds );
       setLastWin(winAmount)
+    }else{
+      setLastWin(0);
     }
   }
 
