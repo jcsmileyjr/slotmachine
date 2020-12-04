@@ -4,7 +4,6 @@ import Symbol from './components/Symbols'
 import InfoBox from './components/InfoBox';
 import './App.css';
 
-//let symbols = [chicken, burger, cheese, shrimp];
 function App() {
   const defaultSymbols = {0:1,1:0,2:3}
   const defaultPayScale = [[1,5],[2,10],[3,20],[4,40]];
@@ -69,9 +68,15 @@ function App() {
         setLastWin(winAmount) 
         return;       
       }else{
+        let newFunds = 0 + funds - currentBet;
+        updateFunds(newFunds);
         setLastWin(0);
       }
     }
+  }
+
+  const changeBetAmount = amount => {
+    changeBet(amount);
   }
 
   return (
@@ -96,10 +101,10 @@ function App() {
         <section className="footer-sections">
           <p className="bet-amount-instruction">Change your <span className="bet-instruction-bold">Bet </span>amount</p>
           <article className="bet-section">
-            <button className="bet-button">1</button>
-            <button className="bet-button">5</button>
-            <button className="bet-button">10</button>
-            <button className="bet-button">20</button>
+            <button className="bet-button" onClick={() => changeBetAmount(1)} >1</button>
+            <button className="bet-button" onClick={() => changeBetAmount(5)} >5</button>
+            <button className="bet-button" onClick={() => changeBetAmount(10)}>10</button>
+            <button className="bet-button" onClick={() => changeBetAmount(20)} >20</button>
           </article>
         </section>
       </footer>
