@@ -1,4 +1,5 @@
 import {useState} from 'react';
+import Swal from 'sweetalert2';
 import combinations from './assets/game-rules.PNG'
 import Symbol from './components/Symbols'
 import InfoBox from './components/InfoBox';
@@ -15,12 +16,17 @@ function App() {
 
   // Function that choose 3 random numbers for a combination of reels, check for combinations, and assign win amount to funds. 
   const onClickSpinButton = () => {
-    let randomSymbol = getRandomCombination(); 
-    setGameSymbols(randomSymbol); // Update the state's symbols to update the Symbol reels
-    setTimeout(()=>setSpinSymbols(false),500); // Set timer to return Symbol reels to waiting status
-    setSpinSymbols(true); // Make the Symbols reel spin
-    
-    computeWin(randomSymbol);
+    if(funds <= 0){
+      Swal.fire("You are out of points. Refresh page to restart!!");
+    }else {
+      let randomSymbol = getRandomCombination(); 
+      setGameSymbols(randomSymbol); // Update the state's symbols to update the Symbol reels
+      setTimeout(()=>setSpinSymbols(false),500); // Set timer to return Symbol reels to waiting status
+      setSpinSymbols(true); // Make the Symbols reel spin
+      
+      computeWin(randomSymbol);
+    }
+
   }
 
   const getRandomCombination = () => {
