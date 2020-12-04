@@ -1,26 +1,43 @@
+import {useState} from 'react';
 import combinations from './assets/rules.PNG'
 import Symbol from './components/Symbols'
 import InfoBox from './components/InfoBox';
 import './App.css';
 
 function App() {
+  const [gameSymbols, setGameSymbols] = useState({})
+  const [spinSymbols, setSpinSymbols] = useState(0);
+
+  const onClickSpinButton = () => {
+    setGameSymbols(false)
+    let randomSymbol = {}
+    for(let i=0;i<3;i++){
+      randomSymbol[i] = Math.floor(Math.random() * 4);
+    }
+    setGameSymbols(randomSymbol);
+    setTimeout(()=>setSpinSymbols(0),500);
+    setSpinSymbols(1);
+    
+    
+  }
+
   return (
     <div className="App">
       <header>
-        <section class="header-section">
-          <label class="play-title">How to Play</label>
+        <section className="header-section">
+          <label className="play-title">How to Play</label>
           <p>Press the spin button to randomaly get three symbols. If the three symobls match a combination you win.</p>
         </section>
         <img src={combinations} className="header-section" alt="Winning combinations" />
       </header>
       <main className="symbol-container">
-        <Symbol order={1} />
-        <Symbol order={2} />
-        <Symbol order={3} />
+        <Symbol order={1} pickedSymbol={gameSymbols[0]} start={spinSymbols===1?true:false} />
+        <Symbol order={2} pickedSymbol={gameSymbols[1]} start={spinSymbols===1?true:false} />
+        <Symbol order={3} pickedSymbol={gameSymbols[2]} start={spinSymbols===1?true:false} />
       </main>
       <footer>
-        <section class="footer-sections spin-button-area">
-          <button className="spin-button">Spin</button>
+        <section className="footer-sections spin-button-area">
+          <button className="spin-button" onClick={()=> onClickSpinButton()}>Spin</button>
         </section>
         <section className="footer-sections info-section">
           <InfoBox title="Bet" data={1} />
