@@ -70,4 +70,8 @@ footer {
   width: 12vw;
 }
 
+.selected-bet {
+  background-color: rgb(4, 248, 4);
+}
+
 
