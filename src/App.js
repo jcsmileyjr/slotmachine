@@ -15,9 +15,7 @@ function App() {
 
   // Function that choose 3 random numbers for a combination of reels, check for combinations, and assign win amount to funds. 
   const onClickSpinButton = () => {
-    let randomSymbol = getRandomCombination(); // Comment out for TESTING TESTING TESTING
-    //let randomSymbol= {0:3,1:3,2:3} //   TESTING TESTING TESTING TESTING
-
+    let randomSymbol = getRandomCombination(); 
     setGameSymbols(randomSymbol); // Update the state's symbols to update the Symbol reels
     setTimeout(()=>setSpinSymbols(false),500); // Set timer to return Symbol reels to waiting status
     setSpinSymbols(true); // Make the Symbols reel spin
@@ -28,7 +26,7 @@ function App() {
   const getRandomCombination = () => {
     let randomSymbol = {}
     
-    // Assign a random number to a new property of randomSymbol which is a number less then 3
+    // Assign a random number to a property of randomSymbol, which is a number less then 3
     for(let i=0;i<3;i++){
       randomSymbol[i] = Math.floor(Math.random() * 4);
     }
@@ -101,10 +99,10 @@ function App() {
         <section className="footer-sections">
           <p className="bet-amount-instruction">Change your <span className="bet-instruction-bold">Bet </span>amount</p>
           <article className="bet-section">
-            <button className="bet-button" onClick={() => changeBetAmount(1)} >1</button>
-            <button className="bet-button" onClick={() => changeBetAmount(5)} >5</button>
-            <button className="bet-button" onClick={() => changeBetAmount(10)}>10</button>
-            <button className="bet-button" onClick={() => changeBetAmount(20)} >20</button>
+            <button className={currentBet===1?"selected-bet bet-button":"bet-button"} onClick={() => changeBetAmount(1)} >1</button>
+            <button className={currentBet===5?"selected-bet bet-button":"bet-button"} onClick={() => changeBetAmount(5)} >5</button>
+            <button className={currentBet===10?"selected-bet bet-button":"bet-button"} onClick={() => changeBetAmount(10)}>10</button>
+            <button className={currentBet===20?"selected-bet bet-button":"bet-button"} onClick={() => changeBetAmount(20)} >20</button>
           </article>
         </section>
       </footer>
