@@ -1,15 +1,22 @@
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import combinations from './assets/rules.PNG'
 import Symbol from './components/Symbols'
 import InfoBox from './components/InfoBox';
 import './App.css';
 
+//let symbols = [chicken, burger, cheese, shrimp];
 function App() {
-  const [gameSymbols, setGameSymbols] = useState({})
+  const defaultSymbols = {0:1,1:0,2:3}
+  const defaultPayScale = [1,5,10,20];
+  const [gameSymbols, setGameSymbols] = useState(defaultSymbols)
   const [spinSymbols, setSpinSymbols] = useState(false);
+  const [currentBet, changeBet] = useState(1);
+  const [funds, updateFunds] = useState(10);
+  const [lastWin, setLastWin] = useState(0);
+
+
 
   const onClickSpinButton = () => {
-    //setGameSymbols(false)
     let randomSymbol = {}
     for(let i=0;i<3;i++){
       randomSymbol[i] = Math.floor(Math.random() * 4);
@@ -17,8 +24,28 @@ function App() {
     setGameSymbols(randomSymbol);
     setTimeout(()=>setSpinSymbols(false),500);
     setSpinSymbols(true);
-    
-    
+    computeWin();
+  }
+
+
+  const computeWin = () => {
+    let currentSymbols = gameSymbols;
+    let count=0;
+    let keySymbol = currentSymbols[0];
+
+    // Loop through each reel (a number) matching against the first reel.
+    for(let reel in currentSymbols){
+      if(currentSymbols[reel] === keySymbol){
+        count ++;
+      }
+    }
+
+    if(count === 3){
+      let winAmount = currentBet * defaultPayScale[keySymbol];
+      let newFunds = winAmount + funds - currentBet
+      updateFunds(newFunds);
+      setLastWin(winAmount)
+    }
   }
 
   return (
@@ -40,9 +67,9 @@ function App() {
           <button className="spin-button" onClick={()=> onClickSpinButton()}>Spin</button>
         </section>
         <section className="footer-sections info-section">
-          <InfoBox title="Bet" data={1} />
-          <InfoBox title="Win" data={1} />
-          <InfoBox title="Funds" data={1} />
+          <InfoBox title="Bet" data={currentBet} />
+          <InfoBox title="Win" data={lastWin} />
+          <InfoBox title="Funds" data={funds} />
         </section>
         <section className="footer-sections">
           <p className="bet-amount-instruction">Change your <span className="bet-instruction-bold">Bet </span>amount</p>
