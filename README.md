@@ -4,7 +4,7 @@
 
 ![gif of app](src/assets/slot-machine-2.gif)
 
-### Project Demo Link: [Slot Machine](https://slot-machine.netlify.app/)
+### Project Demo Link: [Slot Machine](https://smiley-slot-machine.netlify.app/)
 
 ### Table of Contents
 
