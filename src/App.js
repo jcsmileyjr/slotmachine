@@ -14,36 +14,47 @@ function App() {
   const [funds, updateFunds] = useState(10);
   const [lastWin, setLastWin] = useState(0);
 
-
-
+  // Function that choose 3 random numbers for a combination of reels, check for combinations, and assign win amount to funds. 
   const onClickSpinButton = () => {
+    //let randomSymbol = getRandomCombination(); // Comment out for TESTING TESTING TESTING
+    let randomSymbol= {0:3,1:3,2:3} //   TESTING TESTING TESTING TESTING
+
+    setGameSymbols(randomSymbol); // Update the state's symbols to update the Symbol reels
+    setTimeout(()=>setSpinSymbols(false),500); // Set timer to return Symbol reels to waiting status
+    setSpinSymbols(true); // Make the Symbols reel spin
+    
+    computeWin(randomSymbol);
+  }
+
+  const getRandomCombination = () => {
     let randomSymbol = {}
+    
+    // Assign a random number to a new property of randomSymbol which is a number less then 3
     for(let i=0;i<3;i++){
       randomSymbol[i] = Math.floor(Math.random() * 4);
     }
-    setGameSymbols(randomSymbol);
-    setTimeout(()=>setSpinSymbols(false),500);
-    setSpinSymbols(true);
-    computeWin();
+
+    return randomSymbol;
   }
 
-
-  const computeWin = () => {
-    let currentSymbols = gameSymbols;
+  // Based on the random combination the winning amount is added to the user points minus the bet
+  const computeWin = (symbols) => {
     let count=0;
-    let keySymbol = currentSymbols[0];
+    let keySymbol = symbols[0]; // Get the first number of the first reel to use as a comparison
 
     // Loop through each reel (a number) matching against the first reel.
-    for(let reel in currentSymbols){
-      if(currentSymbols[reel] === keySymbol){
+    for(let reel in symbols){
+      if(symbols[reel] === keySymbol){
         count ++;
       }
     }
 
     if(count === 3){
+      // Use the payscale array to determine the winning amonunt to be multiplied times the bet amount
       let winAmount = currentBet * defaultPayScale[keySymbol];
       let newFunds = winAmount + funds - currentBet
-      updateFunds(newFunds);
+
+      updateFunds(newFunds );
       setLastWin(winAmount)
     }
   }
