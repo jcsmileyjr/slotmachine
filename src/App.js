@@ -6,17 +6,17 @@ import './App.css';
 
 function App() {
   const [gameSymbols, setGameSymbols] = useState({})
-  const [spinSymbols, setSpinSymbols] = useState(0);
+  const [spinSymbols, setSpinSymbols] = useState(false);
 
   const onClickSpinButton = () => {
-    setGameSymbols(false)
+    //setGameSymbols(false)
     let randomSymbol = {}
     for(let i=0;i<3;i++){
       randomSymbol[i] = Math.floor(Math.random() * 4);
     }
     setGameSymbols(randomSymbol);
-    setTimeout(()=>setSpinSymbols(0),500);
-    setSpinSymbols(1);
+    setTimeout(()=>setSpinSymbols(false),500);
+    setSpinSymbols(true);
     
     
   }
@@ -31,9 +31,9 @@ function App() {
         <img src={combinations} className="header-section" alt="Winning combinations" />
       </header>
       <main className="symbol-container">
-        <Symbol order={1} pickedSymbol={gameSymbols[0]} start={spinSymbols===1?true:false} />
-        <Symbol order={2} pickedSymbol={gameSymbols[1]} start={spinSymbols===1?true:false} />
-        <Symbol order={3} pickedSymbol={gameSymbols[2]} start={spinSymbols===1?true:false} />
+        <Symbol order={1} pickedSymbol={gameSymbols[0]} start={spinSymbols} />
+        <Symbol order={2} pickedSymbol={gameSymbols[1]} start={spinSymbols} />
+        <Symbol order={3} pickedSymbol={gameSymbols[2]} start={spinSymbols} />
       </main>
       <footer>
         <section className="footer-sections spin-button-area">
