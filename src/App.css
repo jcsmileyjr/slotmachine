@@ -35,13 +35,13 @@ footer {
 }
 
 .spin-button {
-  border-radius: 45%;
+  border-radius: 80px;
   width: 50%;
-  height: 10vh;
+  height: 8vh;
   background-color: green;
-  font-size: larger;
-  font-weight: bold;
-  border: 3px solid black
+  font-size: 32px;
+  border: none;
+  color: white
 }
 
 .info-section {
