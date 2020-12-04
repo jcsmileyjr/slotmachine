@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import combinations from './assets/rules.PNG'
+import combinations from './assets/game-rules.PNG'
 import Symbol from './components/Symbols'
 import InfoBox from './components/InfoBox';
 import './App.css';
@@ -7,7 +7,7 @@ import './App.css';
 //let symbols = [chicken, burger, cheese, shrimp];
 function App() {
   const defaultSymbols = {0:1,1:0,2:3}
-  const defaultPayScale = [1,5,10,20];
+  const defaultPayScale = [[1,5],[2,10],[3,20],[4,40]];
   const [gameSymbols, setGameSymbols] = useState(defaultSymbols)
   const [spinSymbols, setSpinSymbols] = useState(false);
   const [currentBet, changeBet] = useState(1);
@@ -39,35 +39,44 @@ function App() {
 
   // Based on the random combination the winning amount is added to the user points minus the bet
   const computeWin = (symbols) => {
-    let count=0;
-    let keySymbol = symbols[0]; // Get the first number of the first reel to use as a comparison
+    let winningCombinations = {0:0, 1:0, 2:0,3:0};
 
-    // Loop through each reel (a number) matching against the first reel.
+    // Loop through each reel, updating the winningCombination object with each found matching reel.
     for(let reel in symbols){
-      if(symbols[reel] === keySymbol){
-        count ++;
+      let valueOfReel = symbols[reel];
+      for(let key in winningCombinations){
+        if(valueOfReel === Number(key)){          
+          let valueOfKey = winningCombinations[key];
+          winningCombinations[key] = valueOfKey + 1;
+        }
       }
-    }
+    }    
 
-    if(count === 3){
-      // Use the payscale array to determine the winning amonunt to be multiplied times the bet amount
-      let winAmount = currentBet * defaultPayScale[keySymbol];
-      let newFunds = winAmount + funds - currentBet
-
-      updateFunds(newFunds );
-      setLastWin(winAmount)
-    }else{
-      setLastWin(0);
+    // Loop through the combinations to determine payout minus the bet
+    for(let combinations in winningCombinations){
+      if(winningCombinations[combinations] === 3){
+        // Use the payscale array to determine the winning amount to be multiplied times the bet amount
+        let winAmount = currentBet * defaultPayScale[combinations][1];
+        let newFunds = winAmount + funds - currentBet;
+        updateFunds(newFunds);
+        setLastWin(winAmount);
+        return;
+      }else if(winningCombinations[combinations] === 2){
+        // Use the payscale array to determine the winning amount to be multiplied times the bet amount
+        let winAmount = currentBet * defaultPayScale[combinations][0];
+        let newFunds = winAmount + funds - currentBet;
+        updateFunds(newFunds);
+        setLastWin(winAmount) 
+        return;       
+      }else{
+        setLastWin(0);
+      }
     }
   }
 
   return (
     <div className="App">
       <header>
-        <section className="header-section">
-          <label className="play-title">How to Play</label>
-          <p>Press the spin button to randomaly get three symbols. If the three symobls match a combination you win.</p>
-        </section>
         <img src={combinations} className="header-section" alt="Winning combinations" />
       </header>
       <main className="symbol-container">
