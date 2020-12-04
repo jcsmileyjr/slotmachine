@@ -1,4 +1,3 @@
-//import {useState} from 'react';
 import chicken from '../assets/chicken.PNG';
 import burger from '../assets/burger.PNG';
 import cheese from '../assets/cheese.PNG';

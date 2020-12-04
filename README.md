@@ -1,70 +1,49 @@
-# Getting Started with Create React App
+# Slot Machine
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<hr>
 
-## Available Scripts
+![gif of app](src/assets/slot-machine-2.gif)
 
-In the project directory, you can run:
+### Project Demo Link: [Slot Machine](https://slot-machine.netlify.app/)
 
-### `npm start`
+### Table of Contents
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1. Purpose
+2. Motivation
+3. Wireframe
+4. How to play
+5. Technologies Used
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `npm test`
+### Purpose:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Slot machine web game where users spin reels to get random combinations
 
-### `npm run build`
+### Motivation:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The goal was to practice building apps in shorter time periods with React.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### WireFrame
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![Screen-shot of Wireframe in use](src/assets/slot-machine-wireframe.png)
 
-### `npm run eject`
+### How to play:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- User will click the spin button to make the reels spin randomly. The user will win points based on the points received for the random combination. 
+- Users can change the bet amount. 
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### This app was built with the following technologies:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+**React:** JavaScript front-end library for building user interfaces
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+**Git-Hub:** Web-based version control repository and Internet hosting service
 
-## Learn More
+**Abode XD** A wire-framing tool used to create a mockup/visual of what is to be coded
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+**JavaScript:** Object-oriented programming language for web pages
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+**HTML:** Mark-up language for creating web pages
 
-### Code Splitting
+**CSS:** A formatting language for styling web pages
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+_Created by JC Smiley in December of 2020_
