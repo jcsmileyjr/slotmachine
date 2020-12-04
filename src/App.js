@@ -16,24 +16,32 @@ function App() {
 
   // Function that choose 3 random numbers for a combination of reels, check for combinations, and assign win amount to funds. 
   const onClickSpinButton = () => {
+    /*
     let randomSymbol = {}
     
     // Assign a random number to a new property of randomSymbol which is a number less then 3
     for(let i=0;i<3;i++){
       randomSymbol[i] = Math.floor(Math.random() * 4);
     }
+*/
+    let randomSymbol= {0:3,1:3,2:3} //   TESTING TESTING TESTING TESTING
 
     setGameSymbols(randomSymbol); // Updte the state's symbols to update the Symbol reels
     setTimeout(()=>setSpinSymbols(false),500); // Set timer to return Symbol reels to waiting status
     setSpinSymbols(true); // Make the Symbols reel spin
     
+    computeWin(randomSymbol);
+  }
+
+  // Based on the random combination the winning amount is added to the user points minus the bet
+  const computeWin = (symbols) => {
     //let currentSymbols = gameSymbols;
     let count=0;
-    let keySymbol = randomSymbol[0]; // Get the first number of the first reel to use as a comparison
+    let keySymbol = symbols[0]; // Get the first number of the first reel to use as a comparison
 
     // Loop through each reel (a number) matching against the first reel.
-    for(let reel in randomSymbol){
-      if(randomSymbol[reel] === keySymbol){
+    for(let reel in symbols){
+      if(symbols[reel] === keySymbol){
         count ++;
       }
     }
