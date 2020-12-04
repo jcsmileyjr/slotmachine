@@ -84,12 +84,16 @@ footer {
     height: 100vh;
     padding: 50px;
     background-color: rgb(159, 160, 161);
-}
+  }
   .container {
     background-color: white;
     height: 775px;
     width: 500px;
     
+  }
+
+  .bet-button {
+    width: 70px;
   }
 }
 
