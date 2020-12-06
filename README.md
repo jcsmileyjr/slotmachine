@@ -2,7 +2,7 @@
 
 <hr>
 
-![gif of app](src/assets/slot-machine-2.gif)
+![gif of app](src/assets/slot-machine-3.gif)
 
 ### Project Demo Link: [Slot Machine](https://smiley-slot-machine.netlify.app/)
 
