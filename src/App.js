@@ -45,7 +45,7 @@ function App() {
         </main>
         <footer>
           <section className="footer-sections spin-button-area">
-            <button className="spin-button" onClick={()=> onClickSpinButton()}>Spin</button>
+            <button className={spinSymbols?'spin-button button-pressed':"spin-button"} onClick={()=> onClickSpinButton()}>Spin</button>
           </section>
           <section className="footer-sections info-section">
             <InfoBox title="Bet" data={currentBet} />
@@ -53,13 +53,14 @@ function App() {
             <InfoBox title="Funds" data={funds} />
           </section>
           <section className="footer-sections">
-            <p className="bet-amount-instruction">Change your <span className="bet-instruction-bold">Bet </span>amount</p>
-            <article className="bet-section">
+            <p className="bet-amount-instruction">Change your <span className="bet-instruction-bold">Bet </span>amount.</p>
+              <article className="bet-section">
               <button className={currentBet===1?"selected-bet bet-button":"bet-button"} onClick={() => onClickChangeBetAmount(1)} >1</button>
               <button className={currentBet===5?"selected-bet bet-button":"bet-button"} onClick={() => onClickChangeBetAmount(5)} >5</button>
               <button className={currentBet===10?"selected-bet bet-button":"bet-button"} onClick={() => onClickChangeBetAmount(10)}>10</button>
               <button className={currentBet===20?"selected-bet bet-button":"bet-button"} onClick={() => onClickChangeBetAmount(20)} >20</button>
             </article>
+            <p className="bet-amount-tip">Example is changing your bet amount to 5 <span className="bet-instruction-bold">gets 5 times</span> the winning amount. </p>
           </section>
         </footer>
       </div>

@@ -35,13 +35,30 @@ footer {
 }
 
 .spin-button {
-  border-radius: 45%;
+  border-radius: 80px;
   width: 50%;
-  height: 10vh;
+  height: 8vh;
   background-color: green;
-  font-size: larger;
-  font-weight: bold;
-  border: 3px solid black
+  font-size: 32px;
+  border: none;
+  color: white  
+}
+
+.button-pressed {
+  animation: spinning .3s ease-out;
+}
+
+/*animate the symbols falling from the top of the app*/
+@keyframes spinning {
+  0% {
+    background-color: blue;
+  }
+  50% {
+    background-color: green;
+  }
+  100% {
+    background-color: blue;
+  }
 }
 
 .info-section {
@@ -49,14 +66,22 @@ footer {
   justify-content: space-evenly;
 }
 
+label {
+  color: #707070;
+}
+
 .bet-section {
   display: flex;
   justify-content: space-evenly;
 }
 
-.bet-amount-instruction {
+.bet-amount-instruction, .bet-amount-tip {
   text-align: center;
   color: #707070;
+}
+
+.bet-amount-tip {
+  font-size: small;
 }
 
 .bet-instruction-bold {
@@ -66,8 +91,9 @@ footer {
 
 .bet-button {
   /*height: 10vh;*/
-  height: 7vh;
+  height: 4vh;
   width: 12vw;
+  border-radius: 20px;
 }
 
 .selected-bet {
