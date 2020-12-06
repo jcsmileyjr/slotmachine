@@ -68,6 +68,7 @@ footer {
   /*height: 10vh;*/
   height: 7vh;
   width: 12vw;
+  border-radius: 20px;
 }
 
 .selected-bet {
