@@ -49,6 +49,10 @@ footer {
   justify-content: space-evenly;
 }
 
+label {
+  color: #707070;
+}
+
 .bet-section {
   display: flex;
   justify-content: space-evenly;
