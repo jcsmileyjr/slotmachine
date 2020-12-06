@@ -45,7 +45,7 @@ function App() {
         </main>
         <footer>
           <section className="footer-sections spin-button-area">
-            <button className="spin-button" onClick={()=> onClickSpinButton()}>Spin</button>
+            <button className={spinSymbols?'spin-button button-pressed':"spin-button"} onClick={()=> onClickSpinButton()}>Spin</button>
           </section>
           <section className="footer-sections info-section">
             <InfoBox title="Bet" data={currentBet} />

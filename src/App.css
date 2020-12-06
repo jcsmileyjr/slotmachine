@@ -41,7 +41,24 @@ footer {
   background-color: green;
   font-size: 32px;
   border: none;
-  color: white
+  color: white  
+}
+
+.button-pressed {
+  animation: spinning .3s ease-out;
+}
+
+/*animate the symbols falling from the top of the app*/
+@keyframes spinning {
+  0% {
+    background-color: blue;
+  }
+  50% {
+    background-color: green;
+  }
+  100% {
+    background-color: blue;
+  }
 }
 
 .info-section {
