@@ -32,6 +32,14 @@ function App() {
     changeBet(amount);
   }
 
+  const resetGame = () => {
+    changeBet(1);
+    updateFunds(10);
+    setLastWin(0);
+    setGameSymbols(defaultSymbols);
+    console.log("reset game")
+  }
+
   return (
     <div className="app">
       <div className="container">
@@ -61,6 +69,10 @@ function App() {
               <button className={currentBet===20?"selected-bet bet-button":"bet-button"} onClick={() => onClickChangeBetAmount(20)} >20</button>
             </article>
             <p className="bet-amount-tip">Example is changing your bet amount to 5 <span className="bet-instruction-bold">gets 5 times</span> the winning amount. </p>
+            <article className="reset-button-section">
+              <button onClick={()=> resetGame()} className = "reset-button" >Reset Game</button>
+            </article>
+            
           </section>
         </footer>
       </div>
