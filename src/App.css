@@ -100,6 +100,20 @@ label {
   background-color: rgb(4, 248, 4);
 }
 
+.reset-button-section {
+  display: flex;
+  justify-content: center;
+}
+
+.reset-button {
+  height: 6vh;
+  width: 18vw;
+  border-radius: 20px;
+  background-color: red;
+  color: white;
+  border: none;
+}
+
 
 
 /*large screens*/
